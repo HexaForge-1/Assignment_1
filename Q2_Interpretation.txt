@@ -1,0 +1,27 @@
+1. Identify high-risk customers.
+High-risk customers in our dataset are typically older individuals who are self-employed and seeking larger, long-term loans. Even if their income is high,
+their lower credit scores make them statistically similar to previous defaulters.
+
+2. What patterns lead to loan default?
+A clear 'Default Cluster' appears when a Low Credit Score (<680) is combined with a Long Loan Term (10-15 years). Interestingly, income doesn't save these applicants,
+the pattern suggests that credit history and the duration of the debt are more critical than monthly earnings.
+
+3. How do credit score and income influence predictions?
+In this model, Credit Score is the primary predictor. While income tells us how much a customer *could* pay, the Credit Score tells us how likely they *are* to pay.
+Our analysis shows a much stronger negative correlation between Credit Score and default than the positive correlation with income.
+
+4. Suggest banking policies based on model output.
+- Self-Employed Threshold: Require a minimum Credit Score of 700 for self-employed applicants.
+- Risk Capping: Limit the Loan-to-Income ratio for applicants over the age of 45 to reduce late-career default risks.
+
+5. Compare KNN with Decision Trees for this problem.
+KNN is effective here because it finds similar 'financial profiles'. However, a Decision Tree might be better for transparency, as it provides clear 'If-Then' rules (e.g., 'If Score < 680, Reject') that are easier to explain to customers than KNN's 'black box' approach.
+
+6. What happens if LoanAmount dominates distance calculation?
+Without scaling, the Loan Amount (in lakhs) would mathematically dominate the distance calculation because its values are much larger than Employment Type (0 or 1).
+The model would focus almost entirely on loan size and ignore the applicant's employment stability, leading to biased results.
+
+7. Should KNN be used in real-time loan approval systems?
+KNN is excellent for real-time approvals in smaller institutions because it requires zero training time. However, for a major bank with millions of records,
+KNN can become slow during the approval process because it must compare every new applicant to every existing record. For massive scale, models like Logistic Regression
+or Neural Networks are more efficient.
