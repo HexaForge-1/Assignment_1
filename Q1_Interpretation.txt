@@ -1,0 +1,26 @@
+1. Which factor most strongly impacts productivity?
+   Number of Projects is the strongest predictor. In a standardized model, it carries the highest weight, suggesting that the volume of active work is more indicative of
+   output than time spent alone.
+
+2. How does training affect productivity?
+   Training has a positive impact. Every additional hour of training correlates with an increase in productivity, though its relative weight is lower than experience or
+   projects.
+
+3. Should the company increase training hours or working hours?
+   The company should prioritize Training Hours. While both increase productivity, working hours are subject to faster diminishing returns (burnout), whereas training
+   improves the efficiency of every hour worked.
+
+4. What happens if Working Hours increase beyond optimal limits?
+   Productivity begins to decrease. Our quadratic model shows a negative squared coefficient for Working Hours, indicating that after a certain point (the peak of the curve), additional hours lead to fatigue and lower total output.
+
+5. Can productivity ever decrease with more experience?
+   In this specific linear model, no. Experience shows a steady positive coefficient. However, if 'Experience' were tested for non-linearity (like Working Hours),
+   we might see stagnation, but currently, more experience equals higher scores.
+
+6. How would you detect overfitting in this model?
+   By comparing Training R² vs. Cross-Validation (LOOCV) Scores. If the model performs significantly better on the 10 data points provided than on 'held-out' points during
+   validation, it is overfitting (memorizing noise).
+
+7. Suggest one new feature to improve prediction accuracy.
+   'Task Complexity' or 'Tool Proficiency'. These would help explain why two employees with the same hours and experience might have different productivity scores based
+    on the difficulty of the work assigned.
